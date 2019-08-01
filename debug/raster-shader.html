@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>raw raster</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='../dist/mapbox-gl-dev.js'></script>
+    <link href='../dist/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id='map'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWVldGFyIiwiYSI6InhyS3pxd2MifQ.eUZqkZehqlSLBpRsQy4b3A';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: {
+            "version": 8,
+            "sources": {
+                "dem": {
+                    "type": "raster-dem",
+                    "url": "mapbox://mapbox.terrain-rgb"
+                }
+            },
+            "layers": [{
+                "id": "rawraster",
+                "source": "dem",
+                "type": "raw",
+                "minzoom": 0,
+                "maxzoom": 20
+            }]
+        },
+        center: [-95, 38],
+        zoom: 4
+    });
+    map.once('idle', (e) => {
+        (function animate() {
+            map._render();
+            requestAnimationFrame(animate)
+        })()
+    })
+
+
+
+
+</script>
+
+</body>
+
+</html>
