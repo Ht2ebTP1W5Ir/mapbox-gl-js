@@ -6,8 +6,9 @@ import { Evented } from '../util/evented';
 import browser from '../util/browser';
 import { OverscaledTileID } from './tile_id';
 import RasterTileSource from './raster_tile_source';
-// ensure DEMData is registered for worker transfer on main thread:
-import '../data/dem_data';
+// hijacking dem tile source:
+// ensure RawData is registered for worker transfer on main thread:
+import '../data/raw_raster_data';
 
 import type {Source} from './source';
 import type Dispatcher from '../util/dispatcher';

@@ -215,9 +215,12 @@ class Style extends Evented {
     }
 
     _load(json: StyleSpecification, validate: boolean) {
-        if (validate && emitValidationErrors(this, validateStyle(json))) {
-            return;
-        }
+        /*
+            disabling this in lieu of adding "raw" to the style spec :D
+        */
+        // if (validate && emitValidationErrors(this, validateStyle(json))) {
+        //     return;
+        // }
 
         this._loaded = true;
         this.stylesheet = json;

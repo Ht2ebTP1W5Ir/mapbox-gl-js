@@ -1,6 +1,10 @@
 // @flow
 
-import DEMData from '../data/dem_data';
+// import DEMData from '../data/dem_data';
+/*
+    Hijacking the dem workers to return raw data
+*/
+import rawData from '../data/raw_raster_data';
 
 import type Actor from '../util/actor';
 import type {
@@ -11,7 +15,7 @@ import type {
 
 class RasterDEMTileWorkerSource {
     actor: Actor;
-    loaded: {[string]: DEMData};
+    loaded: {[string]: rawData};
 
     constructor() {
         this.loaded = {};
@@ -19,7 +23,7 @@ class RasterDEMTileWorkerSource {
 
     loadTile(params: WorkerDEMTileParameters, callback: WorkerDEMTileCallback) {
         const {uid, encoding, rawImageData} = params;
-        const dem = new DEMData(uid, rawImageData, encoding);
+        const dem = new rawData(uid, rawImageData, encoding);
 
         this.loaded = this.loaded || {};
         this.loaded[uid] = dem;

@@ -88,6 +88,7 @@ class Tile {
     texture: any;
     fbo: ?Framebuffer;
     demTexture: ?Texture;
+    rawTexture: ?Texture;
     refreshedUponExpiration: boolean;
     reloadCallback: any;
     resourceTiming: ?Array<PerformanceResourceTiming>;

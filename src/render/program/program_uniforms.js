@@ -8,6 +8,7 @@ import { debugUniforms } from './debug_program';
 import { clippingMaskUniforms } from './clipping_mask_program';
 import { heatmapUniforms, heatmapTextureUniforms } from './heatmap_program';
 import { hillshadeUniforms, hillshadePrepareUniforms } from './hillshade_program';
+import { rawUniforms } from './raw_program';
 import { lineUniforms, lineGradientUniforms, linePatternUniforms, lineSDFUniforms } from './line_program';
 import { rasterUniforms } from './raster_program';
 import { symbolIconUniforms, symbolSDFUniforms } from './symbol_program';
@@ -29,6 +30,7 @@ export const programUniforms = {
     heatmapTexture: heatmapTextureUniforms,
     hillshade: hillshadeUniforms,
     hillshadePrepare: hillshadePrepareUniforms,
+    raw: rawUniforms,
     line: lineUniforms,
     lineGradient: lineGradientUniforms,
     linePattern: linePatternUniforms,
